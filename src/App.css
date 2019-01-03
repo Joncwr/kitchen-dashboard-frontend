@@ -10,13 +10,6 @@
   width: 100%;
 }
 
-.default::before {
-  content: '';
-  height: 100%;
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .homeButton {
   position: absolute;
   top: 10px;
@@ -25,4 +18,8 @@
   width: 50px;
   opacity: .8;
 	background: url('/img/icon_home.svg') no-repeat center center/ cover;
+}
+
+div {
+  color: #303030;
 }

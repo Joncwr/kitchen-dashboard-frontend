@@ -1,0 +1,24 @@
+.usersComponent {
+  width: 450px;
+  height: 100%;
+  display: inline-block;
+  margin: 0 15px;
+  text-align: center;
+}
+
+.usersComponent-nameContainer {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 5px solid #303030;
+}
+
+.usersComponent-nameContainer-name {
+  font-size: 50px;
+  font-family: 'Staatliches';
+}
+
+.usersComponent-orderComponentContainer {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
