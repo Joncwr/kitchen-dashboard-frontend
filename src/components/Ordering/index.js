@@ -1,6 +1,6 @@
 import React from 'react'
 
-import UsersComponent from './UsersComponent'
+import OrderComponent from './OrderComponent'
 
 import './index.css'
 
@@ -14,18 +14,18 @@ class Ordering extends React.Component {
 
   }
 
-  renderUsers() {
+  renderOrders() {
     let dataArr = testData
     if (dataArr.length > 0) {
       let renderDataArr = []
-      dataArr.map((data,index) =>
+      dataArr.map((data,index) => {
         renderDataArr.push(
-          <UsersComponent
+          <OrderComponent
             key={index}
             data={data}
           />
         )
-      )
+      })
 
       return (
         <div className="ordering">
@@ -38,7 +38,7 @@ class Ordering extends React.Component {
   render() {
     return (
       <div className="default">
-        {this.renderUsers()}
+        {this.renderOrders()}
       </div>
     )
   }
@@ -48,22 +48,5 @@ export default Ordering
 
 
 let testData = [
-  {
-    name: 'Jon',
-    orders: [
-      {
-        name: 'Chicken Sandwich',
-        deadline: 'Tomorrow Breakfast',
-        comments: 'Only put 1 tbsp of sweetener',
-      },
-      {
-        name: 'Chicken Sandwich',
-        deadline: 'Tomorrow Breakfast',
-        comments: 'Only put 1 tbsp of sweetener',
-      },
-    ],
-  },
-  {
-    name: 'Chuchuu',
-  },
+  'Jon', 'Chuchuu'
 ]
