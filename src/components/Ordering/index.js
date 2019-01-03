@@ -48,5 +48,5 @@ export default Ordering
 
 
 let testData = [
-  'Jon', 'Chuchu'
+  'Jon', 'Chuchuu'
 ]
