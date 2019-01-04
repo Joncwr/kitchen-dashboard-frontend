@@ -17,7 +17,6 @@ class UsersComponent extends React.Component {
 
   renderOrders() {
     let { orders } = this.props.data
-    console.log(orders);
     if (orders) {
       let renderOrders = []
       orders.map((data, index) =>
