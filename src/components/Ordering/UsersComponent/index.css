@@ -1,8 +1,9 @@
 .usersComponent {
-  width: 450px;
+  width: 25%;
   height: 100%;
-  display: inline-block;
-  margin: 0 15px;
+  float: left;
+  padding: 0 15px;
+  box-sizing: border-box;
   text-align: center;
 }
 

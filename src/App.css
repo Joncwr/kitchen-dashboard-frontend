@@ -26,3 +26,7 @@
   opacity: .8;
 	background: url('/img/icon_home.svg') no-repeat center center/ cover;
 }
+
+div {
+  color: #303030;
+}
