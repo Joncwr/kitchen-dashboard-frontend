@@ -16,18 +16,18 @@ class OrderComponent extends React.Component {
 
   renderComments() {
     let { comments } = this.props.data
-    if (comments) {
+    if (comments.length > 0) {
       let renderCommentsArr = []
       comments.forEach((data,index) => {
-          if (index < 3) {
-            renderCommentsArr.push(
-              <div className="orderComponent-comments-container" key={index}>
-                <div className="orderComponent-comments-container-text">
-                  {data}
-                </div>
+        if (index < 3) {
+          renderCommentsArr.push(
+            <div className="orderComponent-comments-container" key={index}>
+              <div className="orderComponent-comments-container-text">
+                {data}
               </div>
-            )
-          }
+            </div>
+          )
+        }
       })
       return (
         <div className="orderComponent-comments">
