@@ -1,8 +1,5 @@
 import React from 'react'
 
-import socket from '../../services/Sockets.js'
-import Accounts from '../../services/Accounts.js'
-
 import UsersComponent from './UsersComponent'
 
 import './index.css'
