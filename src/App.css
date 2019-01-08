@@ -5,18 +5,6 @@
 	background: url('/img/background.svg') no-repeat center center/ cover;
 }
 
-.default {
-  height: 100%;
-  width: 100%;
-}
-
-.default::before {
-  content: '';
-  height: 100%;
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .homeButton {
   position: absolute;
   top: 10px;

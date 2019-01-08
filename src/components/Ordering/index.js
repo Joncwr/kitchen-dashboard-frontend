@@ -1,4 +1,5 @@
 import React from 'react'
+import { Scrollbars } from 'react-custom-scrollbars'
 
 import UsersComponent from './UsersComponent'
 
@@ -57,8 +58,12 @@ class Ordering extends React.Component {
   render() {
     return (
       <div className="default">
-        {this.renderUsers()}
-        {this.renderNoCurrentOrders()}
+        <Scrollbars
+          autoHide
+        >
+          {this.renderUsers()}
+          {this.renderNoCurrentOrders()}
+        </Scrollbars>
       </div>
     )
   }

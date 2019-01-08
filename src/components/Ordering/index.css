@@ -2,7 +2,13 @@
   width: 100%;
   height: 100%;
   margin-top: 70px;
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+}
+
+.default {
+  height: 100%;
+  width: 100%;
 }
 
 .blank {
