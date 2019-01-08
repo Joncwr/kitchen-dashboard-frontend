@@ -18,14 +18,14 @@ class App extends Component {
     super()
 
     this.state = {
-      data: [],
+      orderData: [],
     }
   }
 
   componentDidMount() {
     if (localStorage.getItem('data')) {
       let data = localStorage.getItem('data')
-      this.setState({data: JSON.parse(data)})
+      this.setState({orderData: JSON.parse(data)})
     }
     else {
       Accounts.accountData()
@@ -35,7 +35,7 @@ class App extends Component {
           dataArr.push({name: data, orders: []})
         })
 
-        this.setState({data: dataArr},() => {
+        this.setState({orderData: dataArr},() => {
           localStorage.setItem('data', JSON.stringify(dataArr))
         })
       })
@@ -60,10 +60,10 @@ class App extends Component {
   }
 
   changeOrders(res, method) {
-    this.state.data.forEach((data, index) => {
+    this.state.orderData.forEach((data, index) => {
       if (data.name === res.name) {
-        let data = Object.assign([], this.state.data)
-        let dataObject = Object.assign({},this.state.data[index])
+        let data = Object.assign([], this.state.orderData)
+        let dataObject = Object.assign({},this.state.orderData[index])
 
         if (method === 'add') {
           dataObject.orders.push(res.order)
@@ -73,7 +73,7 @@ class App extends Component {
         }
         data[index] = dataObject
 
-        this.setState({data: data},() => {
+        this.setState({orderData: data},() => {
           localStorage.setItem('data', JSON.stringify(data))
         })
       }
@@ -93,7 +93,7 @@ class App extends Component {
           <Route exact path="/ordering" render={() => (
             <Ordering
               history={history}
-              data={this.state.data}
+              data={this.state.orderData}
             />
           )} />
           <Route exact path="/recipeviewer" render={() => (
