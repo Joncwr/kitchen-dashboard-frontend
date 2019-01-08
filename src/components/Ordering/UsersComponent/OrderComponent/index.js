@@ -5,15 +5,6 @@ import Dotdotdot from 'react-dotdotdot'
 import './index.css'
 
 class OrderComponent extends React.Component {
-  constructor(){
-    super()
-
-    this.state = {
-
-    }
-
-  }
-
   renderComments() {
     let { comments } = this.props.data
     if (comments.length > 0) {
@@ -56,14 +47,14 @@ class OrderComponent extends React.Component {
   }
 
   render() {
-    let  { name, deadline, period } = this.props.data
-    let date = moment(deadline).format('D MMM, ddd')
+    let  { name, period, date } = this.props.data
+    let formattedDate = moment(date).format('D MMM, ddd')
     return (
       <div className="orderComponent">
         <div className="orderComponent-wrapper">
           <div className="orderComponent-headerContainer">
             <div className="orderComponent-headerContainer-text">
-              {date}
+              {formattedDate}
             </div>
             <div className="orderComponent-headerContainer-period">
               <div className="orderComponent-headerContainer-period-container" style={{backgroundColor: this.renderPeriodColor(period)}}>
