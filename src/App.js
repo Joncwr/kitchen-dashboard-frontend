@@ -53,6 +53,22 @@ class App extends Component {
     socket.on('delete_last_order', res => {
       Accounts.authorizeUser(res.name)
       .then(() => {
+        this.changeOrders(res, 'deleteLastOrder')
+      })
+      .catch(err => console.log(err))
+    })
+
+    socket.on('getOrders', res => {
+      this.state.orderData.forEach((data,index) => {
+        if (data.name === res.name) {
+          socket.emit('sendOrders', this.state.orderData[index])
+        }
+      })
+    })
+
+    socket.on('deleteOrder', res => {
+      Accounts.authorizeUser(res.name)
+      .then(() => {
         this.changeOrders(res, 'delete')
       })
       .catch(err => console.log(err))
@@ -69,6 +85,9 @@ class App extends Component {
           dataObject.orders.push(res.order)
         }
         else if (method === 'delete') {
+          dataObject.orders.splice(res.order, 1)
+        }
+        else if (method === 'deleteLastOrder') {
           dataObject.orders.pop()
         }
         data[index] = dataObject
