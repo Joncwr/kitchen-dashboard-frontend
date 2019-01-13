@@ -109,13 +109,6 @@
   text-align: left;
 }
 
-.orderComponent-comments-container::before {
-  content: '';
-  height: 100%;
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .orderComponent-comments-container-text::before {
   content: '';
   height: 10px;
@@ -133,7 +126,7 @@
   width: 100%;
   display: inline-block;
   vertical-align: middle;
-  font-size: 22px;
+  font-size: 20px;
   font-family: 'Concert One';
   color: #4d4d4d;
   text-transform: capitalize;
