@@ -6,6 +6,57 @@ import UsersComponent from './UsersComponent'
 import './index.css'
 
 class Ordering extends React.Component {
+  constructor(){
+    super()
+
+    this.state = {
+      scrollPosition: 0,
+    }
+
+    this._handleKey=this._handleKey.bind(this)
+  }
+
+  componentDidMount() {
+   document.addEventListener("keydown", this._handleKey, false);
+  }
+
+  _handleKey(e) {
+    console.log(e.key);
+    let key = e.key
+
+    // SCROLL UP =====
+    if (key === 'w') {
+      let scrollPosition = this.state.scrollPosition - 20
+      if (scrollPosition > 0) {
+        console.log(scrollPosition);
+        this.setState({scrollPosition: scrollPosition}, () => {
+          this.scrollBar.scrollTop(scrollPosition)
+        })
+      }
+      else {
+        this.setState({scrollPosition: 0}, () => {
+          this.scrollBar.scrollTop(0)
+        })
+      }
+    }
+    // SCROLL DOWN =====
+    else if (key === 's') {
+      let scrollPosition = this.state.scrollPosition + 20
+      let maxScrollDown = this.scrollBar.getScrollHeight() - 1080
+      if (scrollPosition < maxScrollDown) {
+        console.log(scrollPosition);
+        this.setState({scrollPosition: scrollPosition}, () => {
+          this.scrollBar.scrollTop(scrollPosition)
+        })
+      }
+      else {
+        this.setState({scrollPosition: maxScrollDown}, () => {
+          this.scrollBar.scrollTop(maxScrollDown)
+        })
+      }
+    }
+  }
+
   renderUsers() {
     let dataArr = Object.assign([],this.props.data)
     if (dataArr.length > 0) {
@@ -60,6 +111,7 @@ class Ordering extends React.Component {
       <div className="default">
         <Scrollbars
           autoHide
+          ref={c => this.scrollBar = c}
         >
           {this.renderUsers()}
           {this.renderNoCurrentOrders()}
